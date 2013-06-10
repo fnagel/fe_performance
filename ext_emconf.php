@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Frontend Performance',
-	'description' => 'This extension improves the frontend performance in TYPO3 6.x. Currently adds JS minification via JSMinPlus and some minor improvements.',
+	'description' => 'This extension improves the frontend performance in TYPO3 6.x. Currently adds JS minification (JSMinPlus) and some minor improvements. See readme.',
 	'category' => 'be',
 	'author' => 'Felix Nagel',
 	'author_email' => 'info@felixnagel.com',
