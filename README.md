@@ -27,12 +27,11 @@ moveInlineJsToFooter in EM to move the file to the footer section.
 
 Feedback
 --------
-Please give feedback via twitter or email, GitHub coming soon...
-@felixnagel
-info @ felixnagel . com
+Please give feedback via twitter (@felixnagel) or email (info @ felixnagel . com).
 
 
 Links
 -----
-JSMinPlus: 	http://crisp.tweakblogs.net/blog/6861/jsmin%2B-version-14.html
-Patch: 		http://forge.typo3.org/issues/48213
+* GitHub:		https://github.com/fnagel/fe_performance
+* JSMinPlus: 	http://crisp.tweakblogs.net/blog/6861/jsmin%2B-version-14.html
+* Patch: 		http://forge.typo3.org/issues/48213
