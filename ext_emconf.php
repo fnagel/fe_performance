@@ -28,18 +28,13 @@ $EM_CONF[$_EXTKEY] = array (
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'version' => '0.1.0',
-	'constraints' => 
-	array (
-		'depends' => 
-		array (
+	'constraints' => array(
+		'depends' => array(
 			'typo3' => '6.0.0-6.1.99',
 		),
-		'conflicts' => 
-		array (
-			'scriptmerger' => '',
+		'conflicts' => array(
 		),
-		'suggests' => 
-		array (
+		'suggests' => array(
 		),
 	),
 );
