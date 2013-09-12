@@ -1,0 +1,10 @@
+2013-09-12  Felix Nagel  <info@felixnagel.com>
+
+	0.1.1 released: Last version for TYPO3 < 6.1.2 and <  6.0.7
+	* fixed: extension dependencies
+	* added: this changelog
+
+2013-06-10  Felix Nagel  <info@felixnagel.com>
+
+	0.1.0 released
+	* Initial release
