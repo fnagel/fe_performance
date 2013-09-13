@@ -43,28 +43,6 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 	 */
 	protected $minifier;
 
-	/**
-	 * Compress multiple javascript files
-	 * Includes pending patch: http://forge.typo3.org/issues/48213
-	 *
-	 * @param array $jsFiles The files to compress (array key = filename), relative to requested page
-	 * @return array The js files after compression (array key = new filename), relative to requested page
-	 */
-	public function compressJsFiles(array $jsFiles) {
-		$filesAfterCompression = array();
-		foreach ($jsFiles as $fileName => $fileOptions) {
-			// If compression is enabled
-			if ($fileOptions['compress']) {
-				$compressedFilename = $this->compressJsFile($fileOptions['file']);
-				$fileOptions['file'] = $compressedFilename;
-				$filesAfterCompression[$compressedFilename] = $fileOptions;
-			} else {
-				$filesAfterCompression[$fileName] = $fileOptions;
-			}
-		}
-		
-		return $filesAfterCompression;
-	}
 
 	/**
 	 * Minification and gzip compression of a javascript file
