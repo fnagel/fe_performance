@@ -8,8 +8,7 @@ Features
 --------
 TYPO3 does gzip compression but no minification of JS files. This extension adds 
 JavaScript minification to files and inline scripts. It's using JSMinPlus and 
-the jsCompressHandler hook. To make this improvement usable I've included a 
-pending core patch. Usage: config.compressJs needs to be enabled, gzip compression 
+the jsCompressHandler hook. Usage: config.compressJs needs to be enabled, gzip compression 
 works as before.
 
 When using "config.removeDefaultJS = external" TYPO3 generates temp JavaScript 
@@ -35,4 +34,3 @@ Links
 -----
 * GitHub:		https://github.com/fnagel/fe_performance
 * JSMinPlus: 	http://crisp.tweakblogs.net/blog/6861/jsmin%2B-version-14.html
-* Patch: 		http://forge.typo3.org/issues/48213
