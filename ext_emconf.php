@@ -20,7 +20,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'shy' => '',
 	'priority' => '',
 	'module' => '',
-	'state' => 'alpha',
+	'state' => 'beta',
 	'internal' => '',
 	'uploadfolder' => '0',
 	'createDirs' => '',
@@ -34,6 +34,8 @@ $EM_CONF[$_EXTKEY] = array (
 		),
 		'conflicts' => array(
 			'scriptmerger' => '',
+			'typo3' => '-6.1.2',
+			'typo3' => '-6.0.7',
 		),
 		'suggests' => array(
 		),

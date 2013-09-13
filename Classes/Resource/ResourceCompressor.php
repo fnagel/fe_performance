@@ -28,6 +28,9 @@ namespace TYPO3\FePerformance\Resource;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+ 
+use TYPO3\CMS\Core\Utility\PathUtility;
+
 /**
  * Compressor (taken from sysext core)
  * Added JavaScript minification and a pending patch
@@ -43,28 +46,6 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 	 */
 	protected $minifier;
 
-	/**
-	 * Compress multiple javascript files
-	 * Includes pending patch: http://forge.typo3.org/issues/48213
-	 *
-	 * @param array $jsFiles The files to compress (array key = filename), relative to requested page
-	 * @return array The js files after compression (array key = new filename), relative to requested page
-	 */
-	public function compressJsFiles(array $jsFiles) {
-		$filesAfterCompression = array();
-		foreach ($jsFiles as $fileName => $fileOptions) {
-			// If compression is enabled
-			if ($fileOptions['compress']) {
-				$compressedFilename = $this->compressJsFile($fileOptions['file']);
-				$fileOptions['file'] = $compressedFilename;
-				$filesAfterCompression[$compressedFilename] = $fileOptions;
-			} else {
-				$filesAfterCompression[$fileName] = $fileOptions;
-			}
-		}
-		
-		return $filesAfterCompression;
-	}
 
 	/**
 	 * Minification and gzip compression of a javascript file
@@ -76,17 +57,17 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 		// generate the unique name of the file
 		$filenameAbsolute = \TYPO3\CMS\Core\Utility\GeneralUtility::resolveBackPath($this->rootPath . $this->getFilenameFromMainDir($filename));
 		$unique = $filenameAbsolute . filemtime($filenameAbsolute) . filesize($filenameAbsolute);
-		$pathinfo = pathinfo($filename);
+		$pathinfo = PathUtility::pathinfo($filename);
 		$targetFile = $this->targetDirectory . $pathinfo['filename'] . '-' . md5($unique) . '.min.js';
-		
+
 		// only create it, if it doesn't exist, yet
 		if (!file_exists((PATH_site . $targetFile)) || $this->createGzipped && !file_exists((PATH_site . $targetFile . '.gzip'))) {
 			$contents = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl($filenameAbsolute);
 			$minifiedContents = $this->minifyJsCode($contents, $filename);
-			
+
 			$this->writeFileAndCompressed($targetFile, $minifiedContents);
 		}
-		
+
 		return $this->relativePath . $this->returnFileReference($targetFile);
 	}
 
@@ -110,7 +91,7 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 		if ($this->minifier === NULL) {
 			$this->minifier = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\FePerformance\\Service\\MinifyService');
 		}
-		
+
 		return $this->minifier;
 	}
 }

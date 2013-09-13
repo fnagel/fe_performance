@@ -50,7 +50,7 @@ class RenderPreProcessHook  {
 	 */
 	public function process(array $params, \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer) {
 		$emConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]);
-		
+
 		if (count($params['jsFiles'])) {
 			foreach ($params['jsFiles'] as $name => $properties) {
 				if (preg_match('/typo3temp\/javascript_[\d|a-z]+\.js/i', $name)) {
@@ -64,6 +64,6 @@ class RenderPreProcessHook  {
 			}
 		}
 	}
-	
+
 }
 ?>

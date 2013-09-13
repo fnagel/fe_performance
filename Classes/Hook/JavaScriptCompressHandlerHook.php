@@ -72,7 +72,7 @@ class JavaScriptCompressHandlerHook  {
 		if ($this->compressor === NULL) {
 			$this->compressor = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\FePerformance\\Resource\\ResourceCompressor');
 		}
-		
+
 		return $this->compressor;
 	}
 
