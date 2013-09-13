@@ -28,6 +28,9 @@ namespace TYPO3\FePerformance\Resource;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+ 
+use TYPO3\CMS\Core\Utility\PathUtility;
+
 /**
  * Compressor (taken from sysext core)
  * Added JavaScript minification and a pending patch
