@@ -56,15 +56,15 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 		$unique = $filenameAbsolute . filemtime($filenameAbsolute) . filesize($filenameAbsolute);
 		$pathinfo = PathUtility::pathinfo($filename);
 		$targetFile = $this->targetDirectory . $pathinfo['filename'] . '-' . md5($unique) . '.min.js';
-		
+
 		// only create it, if it doesn't exist, yet
 		if (!file_exists((PATH_site . $targetFile)) || $this->createGzipped && !file_exists((PATH_site . $targetFile . '.gzip'))) {
 			$contents = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl($filenameAbsolute);
 			$minifiedContents = $this->minifyJsCode($contents, $filename);
-			
+
 			$this->writeFileAndCompressed($targetFile, $minifiedContents);
 		}
-		
+
 		return $this->relativePath . $this->returnFileReference($targetFile);
 	}
 
@@ -88,7 +88,7 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 		if ($this->minifier === NULL) {
 			$this->minifier = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\FePerformance\\Service\\MinifyService');
 		}
-		
+
 		return $this->minifier;
 	}
 }
