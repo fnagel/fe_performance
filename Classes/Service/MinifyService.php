@@ -54,6 +54,7 @@ class MinifyService implements \TYPO3\CMS\Core\SingletonInterface {
 	 *
 	 * @param string $script Script to minfiy
 	 * @param string $filename Filename or key for code block
+	 *
 	 * @return string
 	 */
 	public function processJavaScript($script, $filename = '') {

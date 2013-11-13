@@ -28,7 +28,7 @@ namespace TYPO3\FePerformance\Resource;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
- 
+
 use TYPO3\CMS\Core\Utility\PathUtility;
 
 /**
@@ -51,6 +51,7 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 	 * Minification and gzip compression of a javascript file
 	 *
 	 * @param string $filename Source filename, relative to requested page
+	 *
 	 * @return string Filename of the compressed file, relative to requested page
 	 */
 	public function compressJsFile($filename) {
@@ -76,6 +77,7 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 	 *
 	 * @param string $script Script to minfiy
 	 * @param string $filename Filename or key for code block
+	 *
 	 * @return string Minified code block
 	 */
 	public function minifyJsCode($contents, $filename = "") {

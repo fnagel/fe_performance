@@ -10,7 +10,7 @@
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array (
+$EM_CONF[$_EXTKEY] = array(
 	'title' => 'Frontend Performance',
 	'description' => 'This extension improves the frontend performance in TYPO3 6.x. Currently adds JS minification (JSMinPlus) and some minor improvements. See readme.',
 	'category' => 'be',
@@ -39,8 +39,7 @@ $EM_CONF[$_EXTKEY] = array (
 			'typo3' => '-6.1.2',
 			'typo3' => '-6.0.7',
 		),
-		'suggests' => array(
-		),
+		'suggests' => array(),
 	),
 );
 

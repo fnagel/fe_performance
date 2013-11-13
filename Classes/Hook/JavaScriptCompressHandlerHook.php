@@ -34,7 +34,7 @@ namespace TYPO3\FePerformance\Hook;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class JavaScriptCompressHandlerHook  {
+class JavaScriptCompressHandlerHook {
 
 	/**
 	 * @var \TYPO3\FePerformance\Resource\ResourceCompressor
@@ -45,15 +45,16 @@ class JavaScriptCompressHandlerHook  {
 	/**
 	 * Uses modified ResourceCompressor class to process JS
 	 *
-	 * @param array $params
+	 * @param array                             $params
 	 * @param \TYPO3\CMS\Core\Page\PageRenderer $t3lib_PageRenderer
+	 *
 	 * @see t3lib\class.t3lib_pagerenderer.php
 	 */
 	public function process(array $params, \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer) {
 		if (count($params['jsInline'])) {
 			foreach ($params['jsInline'] as $name => $properties) {
 				if ($properties['compress']) {
-					$params['jsInline'][$name]['code'] =  $this->getCompressor()->minifyJsCode($properties['code'], $name);
+					$params['jsInline'][$name]['code'] = $this->getCompressor()->minifyJsCode($properties['code'], $name);
 				}
 			}
 		}
@@ -77,4 +78,5 @@ class JavaScriptCompressHandlerHook  {
 	}
 
 }
+
 ?>
