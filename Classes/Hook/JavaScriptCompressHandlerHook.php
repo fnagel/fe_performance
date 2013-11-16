@@ -1,5 +1,9 @@
 <?php
+
 namespace TYPO3\FePerformance\Hook;
+
+use TYPO3\CMS\Core\Utility\GeneralUtility,
+	TYPO3\CMS\Core\Page\PageRenderer;
 
 /***************************************************************
  *  Copyright notice
@@ -50,7 +54,7 @@ class JavaScriptCompressHandlerHook {
 	 *
 	 * @see t3lib\class.t3lib_pagerenderer.php
 	 */
-	public function process(array $params, \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer) {
+	public function process(array $params, PageRenderer $pageRenderer) {
 		if (count($params['jsInline'])) {
 			foreach ($params['jsInline'] as $name => $properties) {
 				if ($properties['compress']) {
@@ -71,7 +75,7 @@ class JavaScriptCompressHandlerHook {
 	 */
 	protected function getCompressor() {
 		if ($this->compressor === NULL) {
-			$this->compressor = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\FePerformance\\Resource\\ResourceCompressor');
+			$this->compressor = GeneralUtility::makeInstance('TYPO3\\FePerformance\\Resource\\ResourceCompressor');
 		}
 
 		return $this->compressor;

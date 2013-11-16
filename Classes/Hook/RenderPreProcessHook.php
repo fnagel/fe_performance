@@ -1,5 +1,8 @@
 <?php
+
 namespace TYPO3\FePerformance\Hook;
+
+use TYPO3\CMS\Core\Page\PageRenderer;
 
 /***************************************************************
  *  Copyright notice
@@ -45,11 +48,11 @@ class RenderPreProcessHook {
 	 * We do not want the per page added inline JS to be merged
 	 *
 	 * @param array                             $params
-	 * @param \TYPO3\CMS\Core\Page\PageRenderer $t3lib_PageRenderer
+	 * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
 	 *
 	 * @see t3lib\class.t3lib_pagerenderer.php
 	 */
-	public function process(array $params, \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer) {
+	public function process(array $params, PageRenderer $pageRenderer) {
 		$emConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]);
 
 		if (count($params['jsFiles'])) {
