@@ -1,5 +1,11 @@
 <?php
+
 namespace TYPO3\FePerformance\Resource;
+
+use TYPO3\FePerformance\Service\MinifyServiceInterface;
+
+use TYPO3\CMS\Core\Utility\PathUtility,
+	TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /***************************************************************
  *  Copyright notice
@@ -29,8 +35,6 @@ namespace TYPO3\FePerformance\Resource;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Core\Utility\PathUtility;
-
 /**
  * Compressor (taken from sysext core)
  * Added JavaScript minification and a pending patch
@@ -41,7 +45,12 @@ use TYPO3\CMS\Core\Utility\PathUtility;
 class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 
 	/**
-	 * @var \TYPO3\FePerformance\Service\MinifyService
+	 * @var string
+	 */
+	protected $extKey = 'fe_performance';
+
+	/**
+	 * @var \TYPO3\FePerformance\Service\MinifyServiceInterface
 	 * @inject
 	 */
 	protected $minifier;
@@ -56,15 +65,15 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 	 */
 	public function compressJsFile($filename) {
 		// generate the unique name of the file
-		$filenameAbsolute = \TYPO3\CMS\Core\Utility\GeneralUtility::resolveBackPath($this->rootPath . $this->getFilenameFromMainDir($filename));
+		$filenameAbsolute = GeneralUtility::resolveBackPath($this->rootPath . $this->getFilenameFromMainDir($filename));
 		$unique = $filenameAbsolute . filemtime($filenameAbsolute) . filesize($filenameAbsolute);
 		$pathinfo = PathUtility::pathinfo($filename);
 		$targetFile = $this->targetDirectory . $pathinfo['filename'] . '-' . md5($unique) . '.min.js';
 
 		// only create it, if it doesn't exist, yet
 		if (!file_exists((PATH_site . $targetFile)) || $this->createGzipped && !file_exists((PATH_site . $targetFile . '.gzip'))) {
-			$contents = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl($filenameAbsolute);
-			$minifiedContents = $this->minifyJsCode($contents, $filename);
+			$contents = GeneralUtility::getUrl($filenameAbsolute);
+			$minifiedContents = $this->minifyJsCode($contents);
 
 			$this->writeFileAndCompressed($targetFile, $minifiedContents);
 		}
@@ -75,23 +84,31 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 	/**
 	 * Process minification
 	 *
-	 * @param string $script Script to minfiy
-	 * @param string $filename Filename or key for code block
+	 * @param string 	$script Script to minfiy
 	 *
 	 * @return string Minified code block
 	 */
-	public function minifyJsCode($contents, $filename = "") {
-		return $this->getMinifier()->processJavaScript($contents, $filename);
+	public function minifyJsCode($script) {
+		return $this->getMinifier()->minify($script);
 	}
 
 	/**
-	 * Returns instance of t3lib_Compressor
+	 * Returns our minifier instance
 	 *
-	 * @return \TYPO3\CMS\Core\Resource\ResourceCompressor Instance of t3lib_Compressor
+	 * @return \TYPO3\FePerformance\Service\MinifyServiceInterface
+	 *
+	 * @throws \Exception
 	 */
 	protected function getMinifier() {
 		if ($this->minifier === NULL) {
-			$this->minifier = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\FePerformance\\Service\\MinifyService');
+			$extensionManagerConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]);
+			$minifier = GeneralUtility::makeInstance($extensionManagerConfiguration['minifier']);
+
+			if (!$minifier instanceof MinifyServiceInterface) {
+				throw new \Exception('Minifier must implement interface MinifyServiceInterface', 1299088927);
+			}
+
+			$this->minifier = $minifier;
 		}
 
 		return $this->minifier;

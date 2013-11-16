@@ -4,7 +4,7 @@ namespace TYPO3\FePerformance\Service;
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Felix Nagel <f.nagel@paints.de>
+ *  (c) 2013 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
@@ -26,41 +26,26 @@ namespace TYPO3\FePerformance\Service;
  * ************************************************************* */
 
 /**
- * Service for providing minifier classes
+ * Abstract class Service for providing minifier classes
  *
  * @author Felix Nagel (info@felixnagel.com)
  * @package fe_performance
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class MinifyService implements \TYPO3\CMS\Core\SingletonInterface {
+abstract class AbstractMinifyService implements MinifyServiceInterface, \TYPO3\CMS\Core\SingletonInterface {
 
 	/**
+	 * Extension key
+	 *
 	 * @var string
 	 */
 	protected $extKey = 'fe_performance';
 
 	/**
-	 * Constructor
-	 *
+	 * @inheritDoc
 	 */
-	public function __construct() {
-		$filepath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($this->extKey) . "Resources/Private/Php/jsminplus.php";
-		\TYPO3\CMS\Core\Utility\GeneralUtility::requireOnce($filepath);
-	}
-
-	/**
-	 * Loads module data for user settings or returns a fresh object initially
-	 *
-	 * @param string $script Script to minfiy
-	 * @param string $filename Filename or key for code block
-	 *
-	 * @return string
-	 */
-	public function processJavaScript($script, $filename = '') {
-		return \JSMinPlus::minify($script, $filename);
-	}
-
+	abstract public function minify($sourcecode);
 }
 
 ?>
