@@ -1,4 +1,5 @@
 <?php
+
 namespace TYPO3\FePerformance\Service;
 
 use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility,
@@ -36,7 +37,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility,
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class JavaScriptMinifier extends AbstractMinifyService {
+class JavaScriptMinifierService extends AbstractMinifyService {
 
 	/**
 	 * Constructor
