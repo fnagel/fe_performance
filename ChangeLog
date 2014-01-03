@@ -1,3 +1,10 @@
+2014-01-xx  Felix Nagel  <info@felixnagel.com>
+
+	0.3.0 released: New minifier
+	* added: Wikimedia's JavaScriptMinifier
+	* improved: rework most files
+	* improved: CGL
+
 2013-09-13  Felix Nagel  <info@felixnagel.com>
 
 	0.2.0 released: Minimum requirement is TYPO3 6.1.2 or 6.0.7
