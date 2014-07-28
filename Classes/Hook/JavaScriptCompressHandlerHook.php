@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility,
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2014 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *

@@ -4,7 +4,7 @@ namespace TYPO3\FePerformance\Service;
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2014 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
@@ -44,4 +44,4 @@ interface MinifyServiceInterface {
 	 * @return string The minified string
 	 */
 	public function minify($sourcecode);
-} 
+}

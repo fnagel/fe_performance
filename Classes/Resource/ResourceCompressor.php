@@ -12,7 +12,7 @@ use TYPO3\CMS\Core\Utility\PathUtility,
  *
  *  (c) 2010-2011 Steffen Gebert <steffen@steffen-gebert.de>
  *  (c) 2011 Kai Vogel <kai.vogel@speedprogs.de>
- *  (c) 2013 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2014 Felix Nagel <info@felixnagel.com>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
