@@ -36,8 +36,8 @@ $EM_CONF[$_EXTKEY] = array(
 		),
 		'conflicts' => array(
 			'scriptmerger' => '',
-			'typo3' => '-6.1.2',
-			'typo3' => '-6.0.7',
+			'typo3' => '6.1.0-6.1.2',
+			'typo3' => '6.0.0-6.0.7',
 		),
 		'suggests' => array(),
 	),
