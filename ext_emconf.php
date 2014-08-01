@@ -32,7 +32,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'conflicts' => '',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '6.0.0-6.1.99',
+			'typo3' => '6.0.0-6.2.99',
 		),
 		'conflicts' => array(
 			'scriptmerger' => '',
