@@ -1,9 +1,11 @@
-2014-01-xx  Felix Nagel  <info@felixnagel.com>
+2014-08-01  Felix Nagel  <info@felixnagel.com>
 
 	0.3.0 released: New minifier
 	* added: Wikimedia's JavaScriptMinifier
-	* improved: rework most files
+	* improved: refactor most files
 	* improved: CGL
+	* fixed: extension dependencies
+	* improved: EM config description
 
 2013-09-13  Felix Nagel  <info@felixnagel.com>
 
@@ -12,7 +14,7 @@
 	* changed: adjust code to TYPO3 core downstream
 	* updated: ChangeLog
 	* changed: extension is now considered as beta
-	
+
 2013-09-13  Felix Nagel  <info@felixnagel.com>
 
 	0.1.1 released: Last version for TYPO3 < 6.1.2 and <  6.0.7
