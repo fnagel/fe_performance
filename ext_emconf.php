@@ -27,7 +27,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'modify_tables' => '',
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
-	'version' => '0.3.1',
+	'version' => '0.3.1dev',
 	'dependencies' => '',
 	'conflicts' => '',
 	'constraints' => array(
@@ -36,7 +36,7 @@ $EM_CONF[$_EXTKEY] = array(
 		),
 		'conflicts' => array(
 			'scriptmerger' => '',
-			'typo3' => '6.1.0,6.1.1,6.1.2',
+			'typo3' => '6.1.0-6.1.2',
 		),
 		'suggests' => array(),
 	),
