@@ -2,23 +2,24 @@
 
 This extension helps to improve frontend performance in TYPO3 6.x.
 It adds JS minification and some tweaks to the JS handling in general.
+It's possible to minify all generated HTML.
 
 ## Features
 
-TYPO3 does gzip compression but no minification of JS files. This extension adds 
+TYPO3 does gzip compression but no minification of JS files. This extension adds
 JavaScript minification to files and inline scripts by using the
 jsCompressHandler hook. Usage: config.compressJs needs to be enabled, gzip
 compression works as before.
 
-When using "config.removeDefaultJS = external" TYPO3 generates temp JavaScript 
-files with all per page inline JS and some default JS. This way users need to 
-download code from statc files multiple times, just because its merged with per 
-page inline JS. You could exclude these files from concatenation with static 
-files (includeJS and includeJSFooter) by enabling excludeInlineJsFromConcatenation 
+When using "config.removeDefaultJS = external" TYPO3 generates temp JavaScript
+files with all per page inline JS and some default JS. This way users need to
+download code from statc files multiple times, just because its merged with per
+page inline JS. You could exclude these files from concatenation with static
+files (includeJS and includeJSFooter) by enabling excludeInlineJsFromConcatenation
 in extension manager.
 
-When using includeJSFooter to add JS files it's a little annoying the only 
-remaining JS file in header is the default one. You could use option 
+When using includeJSFooter to add JS files it's a little annoying the only
+remaining JS file in header is the default one. You could use option
 moveInlineJsToFooter in EM to move the file to the footer section.
 
 

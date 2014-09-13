@@ -20,4 +20,11 @@ if ($emConfig['excludeInlineJsFromConcatenation'] || $emConfig['moveInlineJsToFo
 			'TYPO3\\FePerformance\\Hook\\RenderPreProcessHook->process';
 }
 
+
+if ($emConfig['minifyHtml']) {
+	// Minify HTML output
+	$TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output']['tx_felixnagelcom'] =
+		'TYPO3\\FePerformance\\Hook\\ContentPostProcOutput->process';
+}
+
 ?>
