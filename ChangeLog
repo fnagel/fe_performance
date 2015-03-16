@@ -1,6 +1,6 @@
-2014-09-xx  Felix Nagel  <info@felixnagel.com>
+2015-03-16  Felix Nagel  <info@felixnagel.com>
 
-	0.4.0 released: maintenance
+	0.4.0 released: feature release
 	* added: minify HTML option
 	* fixed: extension constraints
 	* changed: change default JS minifier to JavaScriptMinifier
