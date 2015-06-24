@@ -66,7 +66,12 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 	public function compressJsFile($filename) {
 		// generate the unique name of the file
 		$filenameAbsolute = GeneralUtility::resolveBackPath($this->rootPath . $this->getFilenameFromMainDir($filename));
-		$unique = $filenameAbsolute . filemtime($filenameAbsolute) . filesize($filenameAbsolute);
+		if (@file_exists($filenameAbsolute)) {
+			$fileStatus = stat($filenameAbsolute);
+			$unique = $filenameAbsolute . $fileStatus['mtime'] . $fileStatus['size'];
+		} else {
+			$unique = $filenameAbsolute;
+		}
 		$pathinfo = PathUtility::pathinfo($filename);
 		$targetFile = $this->targetDirectory . $pathinfo['filename'] . '-' . md5($unique) . '.min.js';
 
