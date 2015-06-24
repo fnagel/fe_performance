@@ -8,7 +8,7 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility,
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2014 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2015 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
