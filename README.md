@@ -1,6 +1,6 @@
 # TYPO3 fe_performance
 
-This extension helps to improve frontend performance in TYPO3 6.x.
+This extension helps to improve frontend performance in TYPO3 CMS.
 It adds JS minification and some tweaks to the JS handling in general.
 It's possible to minify all generated HTML.
 
