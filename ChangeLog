@@ -1,3 +1,11 @@
+2015-06-24  Felix Nagel  <info@felixnagel.com>
+
+	0.5.0 released: maintenance release
+	* changed: Adjust overwrites to latest code base
+	* added: TYPO3 7.x support
+	* removed: TYPO3 < 6.2 support
+	* changed: Some CGL adjustments
+
 2015-03-16  Felix Nagel  <info@felixnagel.com>
 
 	0.4.0 released: feature release
