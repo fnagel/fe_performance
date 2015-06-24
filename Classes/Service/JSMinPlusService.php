@@ -54,5 +54,3 @@ class JSMinPlusService extends AbstractMinifyService {
 	}
 
 }
-
-?>

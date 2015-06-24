@@ -47,5 +47,3 @@ abstract class AbstractMinifyService implements MinifyServiceInterface, \TYPO3\C
 	 */
 	abstract public function minify($sourcecode);
 }
-
-?>

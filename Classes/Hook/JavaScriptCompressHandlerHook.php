@@ -42,19 +42,18 @@ class JavaScriptCompressHandlerHook {
 
 	/**
 	 * @var \TYPO3\FePerformance\Resource\ResourceCompressor
-	 * @inject
 	 */
 	protected $compressor;
 
 	/**
 	 * Uses modified ResourceCompressor class to process JS
 	 *
-	 * @param array                             $params
-	 * @param \TYPO3\CMS\Core\Page\PageRenderer $t3lib_PageRenderer
+	 * @param array $params
+	 * @return void
 	 *
-	 * @see t3lib\class.t3lib_pagerenderer.php
+	 * @see \TYPO3\CMS\Core\Page\PageRenderer
 	 */
-	public function process(array $params, PageRenderer $pageRenderer) {
+	public function process(array $params) {
 		if (count($params['jsInline'])) {
 			foreach ($params['jsInline'] as $name => $properties) {
 				if ($properties['compress']) {
@@ -82,5 +81,3 @@ class JavaScriptCompressHandlerHook {
 	}
 
 }
-
-?>

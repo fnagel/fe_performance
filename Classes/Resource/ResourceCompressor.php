@@ -119,6 +119,3 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor {
 		return $this->minifier;
 	}
 }
-
-
-?>

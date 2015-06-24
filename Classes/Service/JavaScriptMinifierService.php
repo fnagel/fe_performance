@@ -55,5 +55,3 @@ class JavaScriptMinifierService extends AbstractMinifyService {
 	}
 
 }
-
-?>

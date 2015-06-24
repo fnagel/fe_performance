@@ -26,5 +26,3 @@ if ($emConfig['minifyHtml']) {
 	$TYPO3_CONF_VARS['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output']['tx_felixnagelcom'] =
 		'TYPO3\\FePerformance\\Hook\\ContentPostProcOutput->process';
 }
-
-?>
