@@ -42,7 +42,7 @@ class JSMinPlusService extends AbstractMinifyService {
 	 * Constructor
 	 */
 	public function __construct() {
-		$filepath = ExtensionManagementUtility::extPath($this->extKey) . "Resources/Private/Php/jsminplus.php";
+		$filepath = ExtensionManagementUtility::extPath($this->extKey) . 'Resources/Private/Php/jsminplus.php';
 		GeneralUtility::requireOnce($filepath);
 	}
 

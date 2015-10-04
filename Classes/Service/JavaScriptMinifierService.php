@@ -43,7 +43,7 @@ class JavaScriptMinifierService extends AbstractMinifyService {
 	 * Constructor
 	 */
 	public function __construct() {
-		$filepath = ExtensionManagementUtility::extPath($this->extKey) . "Resources/Private/Php/JavaScriptMinifier.php";
+		$filepath = ExtensionManagementUtility::extPath($this->extKey) . 'Resources/Private/Php/JavaScriptMinifier.php';
 		GeneralUtility::requireOnce($filepath);
 	}
 
