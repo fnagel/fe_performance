@@ -50,7 +50,7 @@ class RenderPreProcessHook {
 	 * @param array                             $params
 	 * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
 	 *
-	 * @see t3lib\class.t3lib_pagerenderer.php
+	 * @see TYPO3\CMS\Core\Page\PageRenderer render-preProcess hook
 	 */
 	public function process(array $params, PageRenderer $pageRenderer) {
 		$emConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]);

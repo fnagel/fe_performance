@@ -51,7 +51,7 @@ class JavaScriptCompressHandlerHook {
 	 * @param array $params
 	 * @return void
 	 *
-	 * @see \TYPO3\CMS\Core\Page\PageRenderer
+	 * @see \TYPO3\CMS\Core\Page\PageRenderer jsCompressHandler hook
 	 */
 	public function process(array $params) {
 		if (count($params['jsInline'])) {
