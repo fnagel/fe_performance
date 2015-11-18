@@ -1,3 +1,9 @@
+2015-11-18  Felix Nagel  <info@felixnagel.com>
+
+	0.5.2 released: maintenance release
+	* updated: TYPO3 7.6 support
+	* changed: Minor CGL fixes
+
 2015-08-10  Felix Nagel  <info@felixnagel.com>
 
 	0.5.1 released: maintenance release
