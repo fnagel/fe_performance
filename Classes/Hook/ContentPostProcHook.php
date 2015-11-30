@@ -6,6 +6,7 @@ namespace TYPO3\FePerformance\Hook;
  *  Copyright notice
  *
  *  (c) 2014-2015 Felix Nagel <info@felixnagel.com>
+ *  (c) 2015 Tim Lochmüller
  *
  *  All rights reserved
  *
@@ -26,15 +27,19 @@ namespace TYPO3\FePerformance\Hook;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
+
 /**
  * Hook within tslib/class.tslib_fe.php
+ *
+ * Some parts taken from https://github.com/lochmueller/sourceopt
  *
  * @author Felix Nagel (info@felixnagel.com)
  * @package fe_performance
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class ContentPostProcOutput {
+class ContentPostProcHook {
 
 	/**
 	 * @var string
@@ -42,21 +47,54 @@ class ContentPostProcOutput {
 	protected $extKey = 'fe_performance';
 
 	/**
-	 * Hook function for cleaning output XHTML
+	 * Hook for adjusting the HTML <body> output
 	 *
-	 * @see tslib/class.tslib_fe.php
+	 * @param TypoScriptFrontendController $typoScriptFrontend
 	 *
-	 * @param array $feObj Hook parameters
-	 * @param object $ref Reference to parent object (TSFE-obj)
-	 *
-	 * @return      void
+	 * @return void
 	 */
-	public function process(&$feObj, $ref) {
-		if ($GLOBALS['TSFE']->type !== 0) {
+	protected function process(TypoScriptFrontendController &$typoScriptFrontend) {
+		if ($typoScriptFrontend->type !== 0) {
 			return;
 		}
 
-		$ref->content = $this->minifyHtml($ref->content);
+		$typoScriptFrontend->content = $this->minifyHtml($typoScriptFrontend->content);
+	}
+
+	/**
+	 * Hook is called before Caching!
+	 * => for modification of pages on their way in the cache.
+	 *
+	 * @param array $parameters
+	 *
+	 * @return void
+	 */
+	public function processCachedContent(&$parameters) {
+		$tsfe = &$parameters['pObj'];
+
+		if ($tsfe instanceof TypoScriptFrontendController) {
+			if ($tsfe->isINTincScript() === FALSE) {
+				$this->process($tsfe);
+			}
+		}
+	}
+
+	/**
+	 * Hook is called after Caching!
+	 * => for modification of pages with COA_/USER_INT objects.
+	 *
+	 * @param array $parameters
+	 *
+	 * @return void
+	 */
+	public function processUncachedContent(&$parameters) {
+		$tsfe = &$parameters['pObj'];
+
+		if ($tsfe instanceof TypoScriptFrontendController) {
+			if ($tsfe->isINTincScript() === TRUE) {
+				$this->process($tsfe);
+			}
+		}
 	}
 
 	/**
