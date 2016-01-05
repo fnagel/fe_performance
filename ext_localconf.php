@@ -25,9 +25,9 @@ if ($emConfig['minifyHtml']) {
 	// Add FE hooks for minify the HTML output
 	if (TYPO3_MODE === 'FE') {
 		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
-			'TYPO3\FePerformance\Hook\ContentPostProcOutput->processUncachedContent';
+			'TYPO3\FePerformance\Hook\ContentPostProcHook->processUncachedContent';
 
 		$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all'][] =
-			'TYPO3\FePerformance\Hook\ContentPostProcOutput->processCachedContent';
+			'TYPO3\FePerformance\Hook\ContentPostProcHook->processCachedContent';
 	}
 }
