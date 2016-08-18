@@ -1,10 +1,11 @@
 <?php
+
 namespace TYPO3\FePerformance\Service;
 
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2015 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2016 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
@@ -26,22 +27,19 @@ namespace TYPO3\FePerformance\Service;
  * ************************************************************* */
 
 /**
- * JavaScript minify service interface for providing minifier classes
+ * JavaScript minify service interface for providing minifier classes.
  *
  * @author Felix Nagel (info@felixnagel.com)
- * @package fe_performance
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
  */
-
-interface MinifyServiceInterface {
-
-	/**
-	 * Processes the JavaScript code minification
-	 *
-	 * @param string $sourcecode Script to minfiy
-	 *
-	 * @return string The minified string
-	 */
-	public function minify($sourcecode);
+interface MinifyServiceInterface
+{
+    /**
+     * Processes the JavaScript code minification.
+     *
+     * @param string $sourcecode Script to minfiy
+     *
+     * @return string The minified string
+     */
+    public function minify($sourcecode);
 }

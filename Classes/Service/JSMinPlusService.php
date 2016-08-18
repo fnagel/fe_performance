@@ -1,13 +1,14 @@
 <?php
+
 namespace TYPO3\FePerformance\Service;
 
-use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility,
-	\TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2015 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2016 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
@@ -29,28 +30,27 @@ use \TYPO3\CMS\Core\Utility\ExtensionManagementUtility,
  * ************************************************************* */
 
 /**
- * Service for JSMinPlus
+ * Service for JSMinPlus.
  *
  * @author Felix Nagel (info@felixnagel.com)
- * @package fe_performance
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
  */
-class JSMinPlusService extends AbstractMinifyService {
+class JSMinPlusService extends AbstractMinifyService
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $filepath = ExtensionManagementUtility::extPath($this->extKey).'Resources/Private/Php/jsminplus.php';
+        GeneralUtility::requireOnce($filepath);
+    }
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		$filepath = ExtensionManagementUtility::extPath($this->extKey) . 'Resources/Private/Php/jsminplus.php';
-		GeneralUtility::requireOnce($filepath);
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function minify($sourcecode) {
-		return \JSMinPlus::minify($sourcecode);
-	}
-
+    /**
+     * {@inheritdoc}
+     */
+    public function minify($sourcecode)
+    {
+        return \JSMinPlus::minify($sourcecode);
+    }
 }

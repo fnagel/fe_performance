@@ -30,53 +30,51 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Hook within t3lib\class.t3lib_pagerenderer.php
- * http://forge.typo3.org/issues/33370
+ * http://forge.typo3.org/issues/33370.
  *
  * @author Felix Nagel (info@felixnagel.com)
- * @package fe_performance
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
  */
-class JavaScriptCompressHandlerHook {
+class JavaScriptCompressHandlerHook
+{
+    /**
+     * @var \TYPO3\FePerformance\Resource\ResourceCompressor
+     */
+    protected $compressor;
 
-	/**
-	 * @var \TYPO3\FePerformance\Resource\ResourceCompressor
-	 */
-	protected $compressor;
+    /**
+     * Uses modified ResourceCompressor class to process JS.
+     *
+     * @param array $params
+     *
+     * @see \TYPO3\CMS\Core\Page\PageRenderer jsCompressHandler hook
+     */
+    public function process(array $params)
+    {
+        if (count($params['jsInline'])) {
+            foreach ($params['jsInline'] as $name => $properties) {
+                if ($properties['compress']) {
+                    $params['jsInline'][$name]['code'] = $this->getCompressor()->minifyJsCode($properties['code'], $name);
+                }
+            }
+        }
 
-	/**
-	 * Uses modified ResourceCompressor class to process JS
-	 *
-	 * @param array $params
-	 * @return void
-	 *
-	 * @see \TYPO3\CMS\Core\Page\PageRenderer jsCompressHandler hook
-	 */
-	public function process(array $params) {
-		if (count($params['jsInline'])) {
-			foreach ($params['jsInline'] as $name => $properties) {
-				if ($properties['compress']) {
-					$params['jsInline'][$name]['code'] = $this->getCompressor()->minifyJsCode($properties['code'], $name);
-				}
-			}
-		}
+        $params['jsLibs'] = $this->getCompressor()->compressJsFiles($params['jsLibs']);
+        $params['jsFiles'] = $this->getCompressor()->compressJsFiles($params['jsFiles']);
+        $params['jsFooterFiles'] = $this->getCompressor()->compressJsFiles($params['jsFooterFiles']);
+    }
 
-		$params['jsLibs'] = $this->getCompressor()->compressJsFiles($params['jsLibs']);
-		$params['jsFiles'] = $this->getCompressor()->compressJsFiles($params['jsFiles']);
-		$params['jsFooterFiles'] = $this->getCompressor()->compressJsFiles($params['jsFooterFiles']);
-	}
+    /**
+     * Returns instance of ResourceCompressor.
+     *
+     * @return \TYPO3\FePerformance\Resource\ResourceCompressor Instance of ResourceCompressor
+     */
+    protected function getCompressor()
+    {
+        if ($this->compressor === null) {
+            $this->compressor = GeneralUtility::makeInstance('TYPO3\\FePerformance\\Resource\\ResourceCompressor');
+        }
 
-	/**
-	 * Returns instance of ResourceCompressor
-	 *
-	 * @return \TYPO3\FePerformance\Resource\ResourceCompressor Instance of ResourceCompressor
-	 */
-	protected function getCompressor() {
-		if ($this->compressor === NULL) {
-			$this->compressor = GeneralUtility::makeInstance('TYPO3\\FePerformance\\Resource\\ResourceCompressor');
-		}
-
-		return $this->compressor;
-	}
-
+        return $this->compressor;
+    }
 }

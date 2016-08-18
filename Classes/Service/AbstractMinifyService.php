@@ -1,10 +1,11 @@
 <?php
+
 namespace TYPO3\FePerformance\Service;
 
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2015 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2016 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
@@ -26,24 +27,22 @@ namespace TYPO3\FePerformance\Service;
  * ************************************************************* */
 
 /**
- * Abstract class Service for providing minifier classes
+ * Abstract class Service for providing minifier classes.
  *
  * @author Felix Nagel (info@felixnagel.com)
- * @package fe_performance
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- *
  */
-abstract class AbstractMinifyService implements MinifyServiceInterface, \TYPO3\CMS\Core\SingletonInterface {
+abstract class AbstractMinifyService implements MinifyServiceInterface, \TYPO3\CMS\Core\SingletonInterface
+{
+    /**
+     * Extension key.
+     *
+     * @var string
+     */
+    protected $extKey = 'fe_performance';
 
-	/**
-	 * Extension key
-	 *
-	 * @var string
-	 */
-	protected $extKey = 'fe_performance';
-
-	/**
-	 * @inheritDoc
-	 */
-	abstract public function minify($sourcecode);
+    /**
+     * {@inheritdoc}
+     */
+    abstract public function minify($sourcecode);
 }
