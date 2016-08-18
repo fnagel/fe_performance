@@ -2,13 +2,12 @@
 
 namespace TYPO3\FePerformance\Hook;
 
-use TYPO3\CMS\Core\Utility\GeneralUtility,
-	TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2015 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2016 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
