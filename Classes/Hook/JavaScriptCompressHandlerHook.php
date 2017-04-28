@@ -7,7 +7,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2016 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2017 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
@@ -54,7 +54,7 @@ class JavaScriptCompressHandlerHook
         if (count($params['jsInline'])) {
             foreach ($params['jsInline'] as $name => $properties) {
                 if ($properties['compress']) {
-                    $params['jsInline'][$name]['code'] = $this->getCompressor()->minifyJsCode($properties['code'], $name);
+                    $params['jsInline'][$name]['code'] = $this->getCompressor()->minifyJsCode($properties['code']);
                 }
             }
         }
