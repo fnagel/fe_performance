@@ -56,8 +56,8 @@ class RenderPreProcessHook
 
         if (count($params['jsFiles'])) {
             foreach ($params['jsFiles'] as $name => $properties) {
-                // Match file pattern for old (6.2-7.4) and new file structure (>= 7.5)
-                if (preg_match('/typo3temp\/(javascript_|Assets\/)[\d|a-z]+\.js/i', $name)) {
+                // Match file pattern for 6.2-7.4 or >= 7.5 or >= 8.0
+                if (preg_match('/typo3temp\/(javascript_|Assets\/|assets\/js\/)[\d|a-z]+\.js/i', $name)) {
                     if ($emConfig['excludeInlineJsFromConcatenation']) {
                         $params['jsFiles'][$name]['excludeFromConcatenation'] = 1;
                     }
