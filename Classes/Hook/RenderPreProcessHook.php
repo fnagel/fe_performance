@@ -7,7 +7,7 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2013-2016 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2017 Felix Nagel <info@felixnagel.com>
  *
  *  All rights reserved
  *
@@ -48,7 +48,7 @@ class RenderPreProcessHook
      * @param array                             $params
      * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
      *
-     * @see TYPO3\CMS\Core\Page\PageRenderer render-preProcess hook
+     * @see \TYPO3\CMS\Core\Page\PageRenderer render-preProcess hook
      */
     public function process(array $params, PageRenderer $pageRenderer)
     {
