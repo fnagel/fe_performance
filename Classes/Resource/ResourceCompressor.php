@@ -11,7 +11,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  *
  *  (c) 2010-2011 Steffen Gebert <steffen@steffen-gebert.de>
  *  (c) 2011 Kai Vogel <kai.vogel@speedprogs.de>
- *  (c) 2013-2016 Felix Nagel <info@felixnagel.com>
+ *  (c) 2013-2017 Felix Nagel <info@felixnagel.com>
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -81,7 +81,11 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
             $this->writeFileAndCompressed($targetFile, $minifiedContents);
         }
 
-        return $this->relativePath.$this->returnFileReference($targetFile);
+        if (version_compare(TYPO3_branch, '8.0', '>=')) {
+            return $this->returnFileReference($targetFile);
+        } else {
+            return $this->relativePath.$this->returnFileReference($targetFile);
+        }
     }
 
     /**
