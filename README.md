@@ -1,27 +1,33 @@
 # TYPO3 fe_performance
 
 This extension helps to improve frontend performance in TYPO3 CMS.
-It adds JS minification and some tweaks to the JS handling in general.
-It's possible to minify all generated HTML.
 
 
 ## Features
 
+* Minification of JS (files and inline)
+* Exclude per page inline JS from concatenation
+* Move default JS to footer
+* Minify all generated HTML
+
+
+## What it does
+
 TYPO3 does gzip compression but no minification of JS files. This extension adds
 JavaScript minification to files and inline scripts by using the
-jsCompressHandler hook. Usage: config.compressJs needs to be enabled, gzip
+`jsCompressHandler` hook. Usage: `config.compressJs` needs to be enabled, gzip
 compression works as before.
 
-When using "config.removeDefaultJS = external" TYPO3 generates temp JavaScript
+When using `config.removeDefaultJS = external` TYPO3 generates temp JavaScript
 files with all per page inline JS and some default JS. This way users need to
-download code from statc files multiple times, just because its merged with per
+download code from static files multiple times, just because its merged with per
 page inline JS. You could exclude these files from concatenation with static
-files (includeJS and includeJSFooter) by enabling excludeInlineJsFromConcatenation
-in extension manager.
+files (includeJS and includeJSFooter) by enabling `excludeInlineJsFromConcatenation`
+option in extension manager.
 
-When using includeJSFooter to add JS files it's a little annoying the only
+When using `includeJSFooter` to add JS files it's a little annoying the only
 remaining JS file in header is the default one. You could use option
-moveInlineJsToFooter in EM to move the file to the footer section.
+`moveInlineJsToFooter` in EM to move the file to the footer section.
 
 
 ### JavaScript minifiers
@@ -52,4 +58,5 @@ Feel free to add bug reports via GitHub issues or send PRs.
 ## Links
 
 * GitHub:		https://github.com/fnagel/fe_performance
+* Bugtracker:	https://github.com/fnagel/fe_performance/issues
 * Changelog:	https://github.com/fnagel/fe_performance/commits
