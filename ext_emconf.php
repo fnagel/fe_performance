@@ -10,7 +10,7 @@
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
     'title' => 'Frontend Performance',
     'description' => 'This extension improves the TYPO3 frontend performance. Adds JS and HTML minification and some minor improvements. See readme.',
     'category' => 'fe',
@@ -23,14 +23,14 @@ $EM_CONF[$_EXTKEY] = array(
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
     'version' => '0.6.2-dev',
-    'constraints' => array(
-        'depends' => array(
+    'constraints' => [
+        'depends' => [
             'php' => '5.5.0-7.1.99',
             'typo3' => '7.0.0-8.7.99',
-        ),
-        'conflicts' => array(
+        ],
+        'conflicts' => [
             'scriptmerger' => '',
-        ),
-        'suggests' => array(),
-    ),
-);
+        ],
+        'suggests' => [],
+    ],
+];
