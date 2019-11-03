@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\FePerformance\Service;
+namespace FelixNagel\FePerformance\Service;
 
 /**
  * This file is part of the "fe_performance" Extension for TYPO3 CMS.

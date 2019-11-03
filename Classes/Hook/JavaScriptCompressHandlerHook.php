@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\FePerformance\Hook;
+namespace FelixNagel\FePerformance\Hook;
 
 /**
  * This file is part of the "fe_performance" Extension for TYPO3 CMS.
@@ -19,7 +19,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class JavaScriptCompressHandlerHook
 {
     /**
-     * @var \TYPO3\FePerformance\Resource\ResourceCompressor
+     * @var \FelixNagel\FePerformance\Resource\ResourceCompressor
      */
     protected $compressor;
 
@@ -48,12 +48,12 @@ class JavaScriptCompressHandlerHook
     /**
      * Returns instance of ResourceCompressor.
      *
-     * @return \TYPO3\FePerformance\Resource\ResourceCompressor Instance of ResourceCompressor
+     * @return \FelixNagel\FePerformance\Resource\ResourceCompressor Instance of ResourceCompressor
      */
     protected function getCompressor()
     {
         if ($this->compressor === null) {
-            $this->compressor = GeneralUtility::makeInstance('TYPO3\\FePerformance\\Resource\\ResourceCompressor');
+            $this->compressor = GeneralUtility::makeInstance('FelixNagel\\FePerformance\\Resource\\ResourceCompressor');
         }
 
         return $this->compressor;

@@ -1,8 +1,8 @@
 	# cat=basic/enable/10; type=boolean; label=Minify all JavaScript: Enable file and inline JavaScript minficiation when config.compressJs is enabled. Gzip compression will be used if enabled (compressionLevel).
 minifyJavaScript = 1
 
-	# cat=basic/enable/20; type=options[JSMin+=TYPO3\FePerformance\Service\JSMinPlusService,JavaScriptMinifier=TYPO3\FePerformance\Service\JavaScriptMinifierService]; label=Choose minifier: Choose which Java-Script minifier should be used.
-minifier = TYPO3\FePerformance\Service\JavaScriptMinifierService
+	# cat=basic/enable/20; type=options[JSMin+=FelixNagel\FePerformance\Service\JSMinPlusService,JavaScriptMinifier=FelixNagel\FePerformance\Service\JavaScriptMinifierService]; label=Choose minifier: Choose which Java-Script minifier should be used.
+minifier = FelixNagel\FePerformance\Service\JavaScriptMinifierService
 
 	# cat=basic/enable/30; type=boolean; label=Exclude per page inline JS from concatenation: When using config.removeDefaultJS = external TYPO3 generates temp JavaScript files with all per page inline JS and some default JS. This option exclude these files from concatenation with static files (includeJS and includeJSFooter). Uses render-preProcess hook.
 excludeInlineJsFromConcatenation = 0

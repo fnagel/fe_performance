@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\FePerformance\Resource;
+namespace FelixNagel\FePerformance\Resource;
 
 /**
  * This file is part of the "fe_performance" Extension for TYPO3 CMS.
@@ -9,7 +9,7 @@ namespace TYPO3\FePerformance\Resource;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use TYPO3\FePerformance\Service\MinifyServiceInterface;
+use FelixNagel\FePerformance\Service\MinifyServiceInterface;
 use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -27,7 +27,7 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
     protected $extKey = 'fe_performance';
 
     /**
-     * @var \TYPO3\FePerformance\Service\MinifyServiceInterface
+     * @var \FelixNagel\FePerformance\Service\MinifyServiceInterface
      * @inject
      */
     protected $minifier;
@@ -82,7 +82,7 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
     /**
      * Returns our minifier instance.
      *
-     * @return \TYPO3\FePerformance\Service\MinifyServiceInterface
+     * @return \FelixNagel\FePerformance\Service\MinifyServiceInterface
      *
      * @throws \Exception
      */

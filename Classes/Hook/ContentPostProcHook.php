@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\FePerformance\Hook;
+namespace FelixNagel\FePerformance\Hook;
 
 /**
  * This file is part of the "fe_performance" Extension for TYPO3 CMS.
