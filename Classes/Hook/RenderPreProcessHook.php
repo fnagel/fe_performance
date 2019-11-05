@@ -34,7 +34,7 @@ class RenderPreProcessHook
     {
         $emConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]);
 
-        if (count($params['jsFiles'])) {    
+        if (count($params['jsFiles'])) {
             foreach ($params['jsFiles'] as $name => $properties) {
                 // Match file pattern for 8.0.0-9.5.11
                 // See here (and other places):
@@ -44,7 +44,7 @@ class RenderPreProcessHook
                         $params['jsFiles'][$name]['excludeFromConcatenation'] = 1;
                     }
                     if ($emConfig['moveInlineJsToFooter']) {
-                        $params['jsFiles'][$name]['section'] = 2;
+                        $params['jsFiles'][$name]['section'] = PageRenderer::PART_FOOTER;
                     }
                 }
             }
