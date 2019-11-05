@@ -26,9 +26,9 @@ class RenderPreProcessHook
      * We do not want the per page added inline JS to be merged.
      *
      * @param array                             $params
-     * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
+     * @param PageRenderer $pageRenderer
      *
-     * @see \TYPO3\CMS\Core\Page\PageRenderer render-preProcess hook
+     * @see PageRenderer render-preProcess hook
      */
     public function process(array $params, PageRenderer $pageRenderer)
     {
