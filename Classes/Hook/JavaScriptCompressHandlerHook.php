@@ -9,6 +9,7 @@ namespace FelixNagel\FePerformance\Hook;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use FelixNagel\FePerformance\Resource\ResourceCompressor;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -48,12 +49,12 @@ class JavaScriptCompressHandlerHook
     /**
      * Returns instance of ResourceCompressor.
      *
-     * @return \FelixNagel\FePerformance\Resource\ResourceCompressor Instance of ResourceCompressor
+     * @return ResourceCompressor Instance of ResourceCompressor
      */
     protected function getCompressor()
     {
         if ($this->compressor === null) {
-            $this->compressor = GeneralUtility::makeInstance('FelixNagel\\FePerformance\\Resource\\ResourceCompressor');
+            $this->compressor = GeneralUtility::makeInstance(ResourceCompressor::class);
         }
 
         return $this->compressor;
