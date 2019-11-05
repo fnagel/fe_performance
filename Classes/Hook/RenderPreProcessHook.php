@@ -34,10 +34,12 @@ class RenderPreProcessHook
     {
         $emConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$this->extKey]);
 
-        if (count($params['jsFiles'])) {
+        if (count($params['jsFiles'])) {    
             foreach ($params['jsFiles'] as $name => $properties) {
-                // Match file pattern for 6.2-7.4 or >= 7.5 or >= 8.0
-                if (preg_match('/typo3temp\/(javascript_|Assets\/|assets\/js\/)[\d|a-z]+\.js/i', $name)) {
+                // Match file pattern for 8.0.0-9.5.11
+                // See here (and other places):
+                // https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/frontend/Classes/Page/PageGenerator.php#L875
+                if (preg_match('/typo3temp\/assets\/js\/[\d|a-z]+\.js/i', $name)) {
                     if ($emConfig['excludeInlineJsFromConcatenation']) {
                         $params['jsFiles'][$name]['excludeFromConcatenation'] = 1;
                     }
