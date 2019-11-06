@@ -1,0 +1,44 @@
+{
+  "name": "felixnagel/fe-performance",
+  "description": "This TYPO3 CMS extension improves your frontend performance.",
+  "type": "typo3-cms-extension",
+  "keywords": ["TYPO3 CMS", "blog"],
+  "homepage": "https://extensions.typo3.org/extension/fe_performance/",
+  "license": "GPL-2.0-or-later",
+  "support": {
+    "issues": "https://github.com/fnagel/fe_performance/issues",
+    "docs": "https://docs.typo3.org/typo3cms/extensions/fe_performance/",
+    "source": "https://github.com/fnagel/fe_performance"
+  },
+  "authors": [
+	{
+	  "name": "Felix Nagel",
+	  "email": "info@felixnagel.com",
+	  "homepage": "http://www.felixnagel.com",
+	  "role": "Developer"
+	}
+  ],
+  "require": {
+    "php": ">=7.0,<7.3",
+    "typo3/cms-core": ">=8.7.0,<=9.5.99"
+  },
+  "autoload": {
+    "psr-4": {
+      "FelixNagel\\FePerformance\\": "Classes"
+    }
+  },
+  "replace": {
+    "typo3-ter/fe_performance": "self.version"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/TYPO3/TYPO3.CMS"
+    }
+  ],
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "fe_performance"
+    }
+  }
+}
