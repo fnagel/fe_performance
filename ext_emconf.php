@@ -32,4 +32,13 @@ $EM_CONF[$_EXTKEY] = [
         ],
         'suggests' => [],
     ],
+    'autoload' => [
+        'psr-4' => [
+            'FelixNagel\\FePerformance\\' => 'Classes',
+        ],
+        'classmap' => [
+            "Resources/Private/Php/JavaScriptMinifier.php",
+            "Resources/Private/Php/jsminplus.php"
+        ],
+    ],
 ];

@@ -25,7 +25,11 @@
   "autoload": {
     "psr-4": {
       "FelixNagel\\FePerformance\\": "Classes"
-    }
+    },
+    "classmap": [
+      "Resources/Private/Php/JavaScriptMinifier.php",
+      "Resources/Private/Php/jsminplus.php"
+    ]
   },
   "replace": {
     "typo3-ter/fe_performance": "self.version"

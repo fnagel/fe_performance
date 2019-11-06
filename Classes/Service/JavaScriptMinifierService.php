@@ -9,25 +9,11 @@ namespace FelixNagel\FePerformance\Service;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 /**
  * Service for JavaScriptMinifier as used by Wikimedia.
  */
 class JavaScriptMinifierService extends AbstractMinifyService
 {
-    /**
-     * Constructor.
-     *
-     * @todo Use autoloading classes instead of require once!
-     */
-    public function __construct()
-    {
-        $filepath = ExtensionManagementUtility::extPath($this->extKey).'Resources/Private/Php/JavaScriptMinifier.php';
-        GeneralUtility::requireOnce($filepath);
-    }
-
     /**
      * {@inheritdoc}
      */
