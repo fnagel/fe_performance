@@ -4,7 +4,7 @@
   "type": "typo3-cms-extension",
   "keywords": ["TYPO3 CMS", "blog"],
   "homepage": "https://extensions.typo3.org/extension/fe_performance/",
-  "license": "GPL-2.0-or-later",
+  "license": "GPL-3.0-or-later",
   "support": {
     "issues": "https://github.com/fnagel/fe_performance/issues",
     "docs": "https://docs.typo3.org/typo3cms/extensions/fe_performance/",
