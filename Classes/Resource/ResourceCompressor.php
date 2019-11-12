@@ -42,28 +42,40 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
     public function compressJsFile($filename)
     {
         // generate the unique name of the file
-        $filenameAbsolute = GeneralUtility::resolveBackPath($this->rootPath.$this->getFilenameFromMainDir($filename));
+        $filenameAbsolute = GeneralUtility::resolveBackPath($this->rootPath . $this->getFilenameFromMainDir($filename));
+
         if (@file_exists($filenameAbsolute)) {
             $fileStatus = stat($filenameAbsolute);
-            $unique = $filenameAbsolute.$fileStatus['mtime'].$fileStatus['size'];
+            $unique = $filenameAbsolute . $fileStatus['mtime'] . $fileStatus['size'];
         } else {
             $unique = $filenameAbsolute;
         }
+
         $pathinfo = PathUtility::pathinfo($filename);
-        $targetFile = $this->targetDirectory.$pathinfo['filename'].'-'.md5($unique).'.min.js';
+        $targetFile = $this->targetDirectory . $pathinfo['filename'] . '-' . md5($unique) . '.min.js';
 
         // only create it, if it doesn't exist, yet
-        if (!file_exists((PATH_site.$targetFile)) || $this->createGzipped && !file_exists((PATH_site.$targetFile.'.gzip'))) {
-            $contents = GeneralUtility::getUrl($filenameAbsolute);
+        if (!file_exists(($this->getPublicPath().$targetFile)) || $this->createGzipped && !file_exists(($this->getPublicPath().$targetFile.'.gzip'))) {
+            $contents = file_get_contents($filenameAbsolute);
             $minifiedContents = $this->minifyJsCode($contents);
 
             $this->writeFileAndCompressed($targetFile, $minifiedContents);
         }
 
-        if (version_compare(TYPO3_branch, '8.0', '>=')) {
-            return $this->returnFileReference($targetFile);
+        return $this->returnFileReference($targetFile);
+    }
+
+    /**
+     * @todo Remove this when TYPO3 8.x is no longer supported!
+     *
+     * @return bool
+     */
+    protected function getPublicPath()
+    {
+        if (version_compare(TYPO3_branch, '9.0', '<')) {
+            return PATH_site;
         } else {
-            return $this->relativePath.$this->returnFileReference($targetFile);
+            return \TYPO3\CMS\Core\Core\Environment::getPublicPath().'/';
         }
     }
 
