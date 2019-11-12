@@ -50,6 +50,14 @@ https://github.com/wikimedia/mediawiki-core/blob/master/includes/libs/JavaScript
 Clear cache via install tool.
 
 
+### Version 1.0.0
+
+Use "Clear all caches including PHP opcode cache" and "Dump Autoload Information" 
+in the install tool (if needed for your setup).
+
+Please update the `minifier` configuration in the Extension Manager as the class names have changed.
+
+
 ## Feedback
 
 Feel free to add bug reports via GitHub issues or send PRs.
