@@ -72,7 +72,7 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
      */
     protected function getPublicPath()
     {
-        if (version_compare(TYPO3_branch, '9.0', '<')) {
+        if (version_compare(TYPO3_branch, '9.2', '<')) {
             return PATH_site;
         } else {
             return \TYPO3\CMS\Core\Core\Environment::getPublicPath().'/';
