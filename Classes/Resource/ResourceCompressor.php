@@ -24,7 +24,6 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
 {
     /**
      * @var \FelixNagel\FePerformance\Service\MinifyServiceInterface
-     * @inject
      */
     protected $minifier;
 
