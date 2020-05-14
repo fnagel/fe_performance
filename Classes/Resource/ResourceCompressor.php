@@ -11,6 +11,7 @@ namespace FelixNagel\FePerformance\Resource;
 
 use FelixNagel\FePerformance\Service\MinifyServiceInterface;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -61,17 +62,11 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
     }
 
     /**
-     * @todo Remove this when TYPO3 8.x is no longer supported!
-     *
-     * @return bool
+     * @return string
      */
     protected function getPublicPath()
     {
-        if (version_compare(TYPO3_branch, '9.2', '<')) {
-            return PATH_site;
-        } else {
-            return \TYPO3\CMS\Core\Core\Environment::getPublicPath().'/';
-        }
+        return Environment::getPublicPath().'/';
     }
 
     /**
