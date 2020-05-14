@@ -15,13 +15,6 @@ namespace FelixNagel\FePerformance\Service;
 abstract class AbstractMinifyService implements MinifyServiceInterface, \TYPO3\CMS\Core\SingletonInterface
 {
     /**
-     * Extension key.
-     *
-     * @var string
-     */
-    protected $extKey = 'fe_performance';
-
-    /**
      * {@inheritdoc}
      */
     abstract public function minify($sourcecode);

@@ -23,11 +23,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
 {
     /**
-     * @var string
-     */
-    protected $extKey = 'fe_performance';
-
-    /**
      * @var \FelixNagel\FePerformance\Service\MinifyServiceInterface
      * @inject
      */
