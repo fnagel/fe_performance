@@ -4,7 +4,9 @@ if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
-$emConfig = unserialize($_EXTCONF);
+$emConfig = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+    \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
+)->get('fe_performance');
 
 if ($emConfig['minifyJavaScript']) {
     // Add hook for minification
