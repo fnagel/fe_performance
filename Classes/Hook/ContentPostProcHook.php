@@ -48,10 +48,8 @@ class ContentPostProcHook
     {
         $tsfe = &$parameters['pObj'];
 
-        if ($tsfe instanceof TypoScriptFrontendController) {
-            if ($tsfe->isINTincScript() === false) {
-                $this->process($tsfe);
-            }
+        if ($tsfe instanceof TypoScriptFrontendController && !$tsfe->isINTincScript()) {
+            $this->process($tsfe);
         }
     }
 
@@ -65,10 +63,8 @@ class ContentPostProcHook
     {
         $tsfe = &$parameters['pObj'];
 
-        if ($tsfe instanceof TypoScriptFrontendController) {
-            if ($tsfe->isINTincScript() === true) {
-                $this->process($tsfe);
-            }
+        if ($tsfe instanceof TypoScriptFrontendController && $tsfe->isINTincScript()) {
+            $this->process($tsfe);
         }
     }
 
