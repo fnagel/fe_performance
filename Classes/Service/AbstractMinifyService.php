@@ -9,10 +9,12 @@ namespace FelixNagel\FePerformance\Service;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\SingletonInterface;
+
 /**
  * Abstract class Service for providing minifier classes.
  */
-abstract class AbstractMinifyService implements MinifyServiceInterface, \TYPO3\CMS\Core\SingletonInterface
+abstract class AbstractMinifyService implements MinifyServiceInterface, SingletonInterface
 {
     /**
      * {@inheritdoc}
