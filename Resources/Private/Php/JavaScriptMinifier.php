@@ -24,6 +24,8 @@
  * the below code will refer to sections of the 5.1 specification.
  *
  * See <https://www.ecma-international.org/ecma-262/5.1/>.
+ *
+ * @extensionScannerIgnoreFile
  */
 class JavaScriptMinifier {
 

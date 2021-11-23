@@ -170,7 +170,9 @@ define('KEYWORD_VOID', 'void');
 define('KEYWORD_WHILE', 'while');
 define('KEYWORD_WITH', 'with');
 
-
+/**
+ * @extensionScannerIgnoreFile
+ */
 class JSMinPlus
 {
 	private $parser;

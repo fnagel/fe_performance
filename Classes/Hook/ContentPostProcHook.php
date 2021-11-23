@@ -34,6 +34,7 @@ class ContentPostProcHook
             return;
         }
 
+        // @extensionScannerIgnoreLine
         $typoScriptFrontend->content = $this->minifyHtml($typoScriptFrontend->content);
     }
 
