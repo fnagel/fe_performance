@@ -16,7 +16,7 @@ if ($emConfig['minifyJavaScript']) {
 }
 
 if ($emConfig['excludeInlineJsFromConcatenation'] || $emConfig['moveInlineJsToFooter']) {
-    // Do not merge per page added inline JS
+    // Move and do not merge per page added inline JS
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_pagerenderer.php']['render-preProcess'][] =
         \FelixNagel\FePerformance\Hook\RenderPreProcessHook::class . '->process';
 }
