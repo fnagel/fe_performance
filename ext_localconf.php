@@ -21,11 +21,3 @@ if ($emConfig['excludeInlineJsFromConcatenation'] || $emConfig['moveInlineJsToFo
         \FelixNagel\FePerformance\Hook\RenderPreProcessHook::class . '->process';
 }
 
-// Add FE hooks for minify the HTML output
-if ($emConfig['minifyHtml'] && TYPO3_MODE === 'FE') {
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-output'][] =
-            \FelixNagel\FePerformance\Hook\ContentPostProcHook::class . '->processUncachedContent';
-
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all'][] =
-            \FelixNagel\FePerformance\Hook\ContentPostProcHook::class . '->processCachedContent';
-}

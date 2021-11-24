@@ -8,7 +8,6 @@ This extension helps to improve frontend performance in TYPO3 CMS.
 * Minification of JS (files and inline)
 * Exclude per page inline JS from concatenation
 * Move default JS to footer
-* Minify all generated HTML
 
 
 ## What it does

@@ -9,7 +9,3 @@ excludeInlineJsFromConcatenation = 0
 
 	# cat=basic/enable/40; type=boolean; label=Move per page inline JS to footer: When using config.removeDefaultJS = external  TYPO3 generates temp JavaScript files with all per page inline JS and some default JS. This option moves these files from document head to the bottom. Uses render-preProcess hook.
 moveInlineJsToFooter = 0
-
-	# cat=basic/enable/50; type=boolean; label=Minify HTML output: Minify rendered HTML before delivering to the client. Preserves conditional comments and code / pre blocks. Uses contentPostProc-output hook.
-minifyHtml = 0
-
