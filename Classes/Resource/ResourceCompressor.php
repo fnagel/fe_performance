@@ -50,24 +50,16 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
         $pathinfo = PathUtility::pathinfo($filename);
         $targetFile = $this->targetDirectory . $pathinfo['filename'] . '-' . md5($unique) . '.min.js';
 
-        // only create it, if it doesn't exist, yet
-        if (!file_exists(($this->getPublicPath().$targetFile)) || $this->createGzipped && !file_exists(($this->getPublicPath().$targetFile.'.gzip'))) {
-            $contents = file_get_contents($filenameAbsolute);
+		// only create it, if it doesn't exist, yet
+		if (!file_exists(Environment::getPublicPath() . '/' . $targetFile) || $this->createGzipped && !file_exists(Environment::getPublicPath() . '/' . $targetFile . '.gzip')) {
+			$contents = (string)file_get_contents($filenameAbsolute);
             $minifiedContents = $this->minifyJsCode($contents);
 
             $this->writeFileAndCompressed($targetFile, $minifiedContents);
         }
 
         return $this->returnFileReference($targetFile);
-    }
-
-    /**
-     * @return string
-     */
-    protected function getPublicPath()
-    {
-        return Environment::getPublicPath().'/';
-    }
+	}
 
     /**
      * Process minification.

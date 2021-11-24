@@ -46,7 +46,14 @@ https://github.com/wikimedia/mediawiki-core/blob/master/includes/libs/JavaScript
 
 ## Upgrade
 
-Clear cache via install tool.
+Clear all caches.
+
+
+### Version 2.0.0
+
+Use "Flush TYPO3 and PHP Cache" in the "Admin Tools -> Maintenance" BE module.
+
+* Removed HTML minify option
 
 
 ### Version 1.0.0

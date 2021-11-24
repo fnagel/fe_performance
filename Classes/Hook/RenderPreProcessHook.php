@@ -38,10 +38,10 @@ class RenderPreProcessHook
 
         if (count($params['jsFiles'])) {
             foreach ($params['jsFiles'] as $name => $properties) {
-                // Match file pattern for 8.0.0-10.4.2
+                // Match file pattern for 8.0.0-11.5.3
                 // See here (and other places):
-                // https://github.com/TYPO3/TYPO3.CMS/blob/9.5/typo3/sysext/frontend/Classes/Page/PageGenerator.php#L875
-                // https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/core/Classes/Utility/GeneralUtility.php#L2463
+                // https://github.com/TYPO3/typo3/blob/57944c8c5add00f0e8a1a5e1d07f30a8f20a8201/typo3/sysext/frontend/Classes/Page/PageGenerator.php#L875
+                // https://github.com/TYPO3/typo3/blob/8a455d39c0f1ef1d6b96ad4c7714ebf11317c8df/typo3/sysext/core/Classes/Utility/GeneralUtility.php#L2334
                 if (preg_match('/typo3temp\/assets\/js\/[\d|a-z]+\.js/i', $name)) {
                     if ($emConfig['excludeInlineJsFromConcatenation']) {
                         $params['jsFiles'][$name]['excludeFromConcatenation'] = 1;
