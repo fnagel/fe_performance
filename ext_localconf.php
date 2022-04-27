@@ -2,9 +2,7 @@
 
 defined('TYPO3') || die();
 
-$emConfig = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-    \TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class
-)->get('fe_performance');
+$emConfig = \FelixNagel\FePerformance\Utility\ExtensionConfigurationUtility::get();
 
 if ($emConfig['minifyJavaScript']) {
     // Add hook for minification

@@ -9,9 +9,8 @@ namespace FelixNagel\FePerformance\Hook;
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use FelixNagel\FePerformance\Utility\ExtensionConfigurationUtility;
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Hook within t3lib\class.t3lib_pagerenderer.php.
@@ -34,7 +33,7 @@ class RenderPreProcessHook
      */
     public function process(array $params, PageRenderer $pageRenderer)
     {
-        $emConfig = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('fe_performance');
+        $emConfig = ExtensionConfigurationUtility::get();
 
         if (count($params['jsFiles'])) {
             foreach ($params['jsFiles'] as $name => $properties) {

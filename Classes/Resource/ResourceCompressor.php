@@ -10,7 +10,7 @@ namespace FelixNagel\FePerformance\Resource;
  */
 
 use FelixNagel\FePerformance\Service\MinifyServiceInterface;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use FelixNagel\FePerformance\Utility\ExtensionConfigurationUtility;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -63,9 +63,7 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
     protected function getMinifier(): MinifyServiceInterface
     {
         if ($this->minifier === null) {
-            $extensionManagerConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('fe_performance');
-
-            $minifier = GeneralUtility::makeInstance($extensionManagerConfiguration['minifier']);
+            $minifier = GeneralUtility::makeInstance(ExtensionConfigurationUtility::get('minifier'));
 
             if (!$minifier instanceof MinifyServiceInterface) {
                 throw new \Exception('Minifier must implement interface MinifyServiceInterface', 1299088927);
