@@ -19,21 +19,15 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * Compressor (taken from sysext core)
  *
  * Added JavaScript minification.
- *
  */
 class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
 {
-    /**
-     * @var \FelixNagel\FePerformance\Service\MinifyServiceInterface
-     */
-    protected $minifier;
+    protected ?MinifyServiceInterface $minifier = null;
 
     /**
      * Minification and gzip compression of a javascript file.
      *
-     * @param string $filename Source filename, relative to requested page
-     *
-     * @return string Filename of the compressed file, relative to requested page
+     * @inheritDoc
      */
     public function compressJsFile($filename)
     {
@@ -61,26 +55,12 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
         return $this->returnFileReference($targetFile);
 	}
 
-    /**
-     * Process minification.
-     *
-     * @param string $script Script to minfiy
-     *
-     * @return string Minified code block
-     */
-    public function minifyJsCode($script)
+    public function minifyJsCode(string $script): string
     {
         return $this->getMinifier()->minify($script);
     }
 
-    /**
-     * Returns our minifier instance.
-     *
-     * @return \FelixNagel\FePerformance\Service\MinifyServiceInterface
-     *
-     * @throws \Exception
-     */
-    protected function getMinifier()
+    protected function getMinifier(): MinifyServiceInterface
     {
         if ($this->minifier === null) {
             $extensionManagerConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('fe_performance');
