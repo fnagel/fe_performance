@@ -1,0 +1,6 @@
+services:
+  FelixNagel\FePerformance\EventListener\MinifyJavaScript:
+    tags:
+      - name: event.listener
+        identifier: 'fePerformance/MinifyJavaScript'
+        event: TYPO3\CMS\Core\Page\Event\BeforeJavaScriptsRenderingEvent
