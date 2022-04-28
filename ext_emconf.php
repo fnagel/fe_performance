@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Frontend Performance',
-    'description' => 'This TYPO3 CMS extension improves your frontend performance. Adds JS and HTML minification and some minor improvements. See readme.',
+    'description' => 'This TYPO3 CMS extension improves your frontend performance. Adds JavaScript and HTML minification. Comes with some useful tweaks to improve asset rendering. See readme for more info.',
     'category' => 'fe',
     'author' => 'Felix Nagel',
     'author_email' => 'info@felixnagel.com',
