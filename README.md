@@ -1,21 +1,31 @@
 # TYPO3 fe_performance
 
-This extension helps to improve frontend performance in TYPO3 CMS.
+This TYPO3 CMS extension improves your frontend performance.
+Adds HTML and JavaScript minification.
+Comes with some useful tweaks to improve asset rendering.
+
+Supports JS added by TypoScript, PageRenderer or AssetCollector.
 
 
 ## Features
 
-* Minification of JS (files and inline)
-* Exclude per page inline JS from concatenation
-* Move default JS to footer
+* JS added by TypoScript or PageRenderer
+  * Minification of JS (files and inline)
+  * Exclude per page inline JS from concatenation
+  * Move default JS to footer
+
+* JS added by AssetCollector (BETA!)
+  * Enable minify and gzip for JS files
+
+* Minify all generated HTML
 
 
 ## What it does
 
 TYPO3 does gzip compression but no minification of JS files. This extension adds
 JavaScript minification to files and inline scripts by using the
-`jsCompressHandler` hook. Usage: `config.compressJs` needs to be enabled, gzip
-compression works as before.
+`jsCompressHandler` hook and `BeforeJavaScriptsRenderingEvent` event.
+Usage: `config.compressJs` needs to be enabled, gzip compression works as before.
 
 When using `config.removeDefaultJS = external` TYPO3 generates temp JavaScript
 files with all per page inline JS and some default JS. This way users need to
@@ -41,24 +51,20 @@ http://crisp.tweakblogs.net/blog/6861/jsmin%2B-version-14.html
 **JavaScriptMinifier**
 Used by the Wikimedia Foundation for different projects incl. Wikipedia.
 Considered the most robust, stable and fastest one. Under active development.
-https://github.com/wikimedia/mediawiki-core/blob/master/includes/libs/JavaScriptMinifier.php
+https://github.com/wikimedia/mediawiki/blob/REL1_35/includes/libs/JavaScriptMinifier.php
 
 
 ## Upgrade
 
-Clear all caches.
-
 
 ### Version 2.0.0
 
-Use "Flush TYPO3 and PHP Cache" in the "Admin Tools -> Maintenance" BE module.
-
-* Removed HTML minify option
+Use "Flush TYPO3 and PHP Cache" in the "Admin Tools -> Maintenance" BE module.`
 
 
 ### Version 1.0.0
 
-Use "Clear all caches including PHP opcode cache" and "Dump Autoload Information" 
+Use "Clear all caches including PHP opcode cache" and "Dump Autoload Information"
 in the install tool (if needed for your setup).
 
 Please update the `minifier` configuration in the Extension Manager as the class names have changed.
