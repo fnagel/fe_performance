@@ -12,3 +12,6 @@ moveInlineJsToFooter = 0
 
 	# cat=collector; type=boolean; label=Asset Collector: Minify JavaScript files. Uses BeforeJavaScriptsRendering event.
 assetCollectorMinifyJavaScriptFiles = 1
+
+	# cat=html; type=boolean; label=Minify HTML output: Minify rendered HTML before delivering to the client. Preserves conditional comments and code / pre blocks. Uses middleware.
+minifyHtml = 0
