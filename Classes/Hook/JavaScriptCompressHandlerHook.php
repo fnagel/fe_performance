@@ -23,8 +23,6 @@ class JavaScriptCompressHandlerHook
     /**
      * Uses modified ResourceCompressor class to process JS.
      *
-     * @param array $params
-     *
      * @see \TYPO3\CMS\Core\Page\PageRenderer jsCompressHandler hook
      */
     public function process(array $params)
