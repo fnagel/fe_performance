@@ -19,9 +19,12 @@
 	}
   ],
   "require": {
-	  "php": ">=7.4,<8.2",
-	  "typo3/cms-core": ">=10.4.0,<=11.5.99"
+	  "php": "^8.0",
+	  "typo3/cms-core": ">=11.5.0,<=12.4.99"
   },
+	"require-dev": {
+		"ssch/typo3-rector": "^1.2"
+	},
   "autoload": {
     "psr-4": {
       "FelixNagel\\FePerformance\\": "Classes"
