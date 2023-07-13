@@ -10,8 +10,8 @@ $emConfig = ExtensionConfigurationUtility::get();
 
 if ($emConfig['minifyJavaScript']) {
     // Add hook for minification
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['jsCompressHandler'] =
-        JavaScriptCompressHandlerHook::class . '->process';
+    // @extensionScannerIgnoreLine
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['jsCompressHandler'] = JavaScriptCompressHandlerHook::class . '->process';
 
     // Make sure page JS is not minified before
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_div.php']['minifyJavaScript'] = null;
