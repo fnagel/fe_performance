@@ -12,7 +12,6 @@ Supports JS added by TypoScript, PageRenderer or AssetCollector.
 * JS added by TypoScript or PageRenderer
   * Minification of JS (files and inline)
   * Exclude per page inline JS from concatenation
-  * Move default JS to footer
 
 * JS added by AssetCollector (BETA!)
   * Enable minify and gzip for JS files
@@ -34,10 +33,6 @@ page inline JS. You could exclude these files from concatenation with static
 files (includeJS and includeJSFooter) by enabling `excludeInlineJsFromConcatenation`
 option in extension manager.
 
-When using `includeJSFooter` to add JS files it's a little annoying the only
-remaining JS file in header is the default one. You could use option
-`moveInlineJsToFooter` in EM to move the file to the footer section.
-
 
 ### JavaScript minifiers
 
@@ -55,6 +50,14 @@ https://github.com/wikimedia/mediawiki/blob/REL1_35/includes/libs/JavaScriptMini
 
 
 ## Upgrade
+
+
+### Version 2.2.0
+
+Use "Flush TYPO3 and PHP Cache" in the "Admin Tools -> Maintenance" BE module.
+
+Removed obsolete `moveInlineJsToFooter` option. Since TYPO3 v11 the asset collector is used and
+adds the default JS to the footer without any tweaks.
 
 
 ### Version 2.0.0

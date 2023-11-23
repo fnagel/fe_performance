@@ -7,9 +7,6 @@ minifier = FelixNagel\FePerformance\Service\JavaScriptMinifierService
 	# cat=javascript; type=boolean; label=Exclude per page inline JS from concatenation: When using config.removeDefaultJS = external TYPO3 generates temp JavaScript files with all per page inline JS and some default JS. This option exclude these files from concatenation with static files (includeJS and includeJSFooter). Uses render-preProcess hook.
 excludeInlineJsFromConcatenation = 0
 
-	# cat=javascript; type=boolean; label=Move per page inline JS to footer: When using config.removeDefaultJS = external TYPO3 generates temp JavaScript files with all per page inline JS and some default JS. This option moves these files from document head to the bottom. Uses render-preProcess hook.
-moveInlineJsToFooter = 0
-
 	# cat=collector; type=boolean; label=Asset Collector: Minify JavaScript files. Uses BeforeJavaScriptsRendering event.
 assetCollectorMinifyJavaScriptFiles = 1
 
