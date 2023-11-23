@@ -35,6 +35,7 @@ class JavaScriptCompressHandlerHook
             }
         }
 
+        // This is fine as it is even when the IDE says otherwise
         $params['jsLibs'] = $this->getCompressor()->compressJsFiles($params['jsLibs']);
         $params['jsFiles'] = $this->getCompressor()->compressJsFiles($params['jsFiles']);
         $params['jsFooterFiles'] = $this->getCompressor()->compressJsFiles($params['jsFooterFiles']);
