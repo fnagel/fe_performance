@@ -25,7 +25,6 @@ class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
 {
     protected ?MinifyServiceInterface $minifier = null;
 
-    // @todo Test this with TYPO3 v11! Works for v12.
     // @todo Remove this when TYPO3 v11 is no longer relevant!
     protected function initialize(): void
     {
