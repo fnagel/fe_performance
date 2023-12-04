@@ -56,8 +56,8 @@ https://github.com/wikimedia/mediawiki/blob/REL1_35/includes/libs/JavaScriptMini
 
 Use "Flush TYPO3 and PHP Cache" in the "Admin Tools -> Maintenance" BE module.
 
-Removed obsolete `moveInlineJsToFooter` option. Since TYPO3 v11 the asset collector is used and
-adds the default JS to the footer without any tweaks.
+Removed obsolete `moveInlineJsToFooter` option. Since TYPO3 v11 the asset collector is used
+for inline JS and adds the default JS to the footer without any tweaks.
 
 
 ### Version 2.0.0
