@@ -34,10 +34,8 @@ class RenderPreProcessHook
                 // https://github.com/TYPO3/typo3/blob/57944c8c5add00f0e8a1a5e1d07f30a8f20a8201/typo3/sysext/frontend/Classes/Page/PageGenerator.php#L875
                 // https://github.com/TYPO3/typo3/blob/8a455d39c0f1ef1d6b96ad4c7714ebf11317c8df/typo3/sysext/core/Classes/Utility/GeneralUtility.php#L2334
                 // https://github.com/TYPO3/typo3/blob/7bd650b7ee1b42c442819529271f05c0691c03af/typo3/sysext/core/Classes/Utility/GeneralUtility.php#L2559
-                if (preg_match('/typo3temp\/assets\/js\/[\d|a-z]+\.js/i', $name)) {
-                    if ($emConfig['excludeInlineJsFromConcatenation']) {
-                        $params['jsFiles'][$name]['excludeFromConcatenation'] = 1;
-                    }
+                if ($emConfig['excludeInlineJsFromConcatenation'] && preg_match('/typo3temp\/assets\/js\/[\d|a-z]+\.js/i', $name)) {
+                    $params['jsFiles'][$name]['excludeFromConcatenation'] = 1;
                 }
             }
         }
