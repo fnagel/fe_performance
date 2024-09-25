@@ -12,7 +12,6 @@ namespace FelixNagel\FePerformance\Resource;
 use FelixNagel\FePerformance\Service\MinifyServiceInterface;
 use FelixNagel\FePerformance\Utility\ExtensionConfigurationUtility;
 use TYPO3\CMS\Core\Core\Environment;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Utility\PathUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -24,16 +23,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class ResourceCompressor extends \TYPO3\CMS\Core\Resource\ResourceCompressor
 {
     protected ?MinifyServiceInterface $minifier = null;
-
-    // @todo Remove this when TYPO3 v11 is no longer relevant!
-    protected function initialize(): void
-    {
-        if (version_compare(GeneralUtility::makeInstance(Typo3Version::class)->getMajorVersion(), '12.0', '<')) {
-            $this->gzipFileExtension = '.gzip';
-        } else {
-            parent::initialize();
-        }
-    }
 
     /**
      * Minification and gzip compression of a javascript file.
