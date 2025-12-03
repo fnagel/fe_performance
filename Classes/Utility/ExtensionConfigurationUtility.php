@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ExtensionConfigurationUtility implements SingletonInterface
 {
-    public static function get(string $key = null): array|string|null
+    public static function get(?string $key = null): array|string|null
     {
         $config = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('fe_performance');
 
