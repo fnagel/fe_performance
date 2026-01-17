@@ -1,4 +1,4 @@
-	# cat=minify; type=boolean; label=Minify all JavaScript: Enable global file and inline JavaScript minficiation when config.compressJs is enabled. Gzip compression will be used if enabled (compressionLevel).
+	# cat=minify; type=boolean; label=Minify all JavaScript: Enable global file and inline JavaScript minification.
 minifyJavaScript = 1
 
 	# cat=minify; type=options[JSMin+=FelixNagel\FePerformance\Service\JSMinPlusService,JavaScriptMinifier=FelixNagel\FePerformance\Service\JavaScriptMinifierService]; label=Choose minifier: Choose which Java-Script minifier should be used.
