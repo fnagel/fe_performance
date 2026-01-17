@@ -13,6 +13,9 @@ use FelixNagel\FePerformance\Traits\ResourceCompressorTrait;
 use FelixNagel\FePerformance\Utility\ExtensionConfigurationUtility;
 use TYPO3\CMS\Core\Page\Event\BeforeJavaScriptsRenderingEvent as Event;
 
+/**
+ * Processes JS managed by asset collector
+ */
 class MinifyJavaScript
 {
     use ResourceCompressorTrait;
@@ -26,31 +29,6 @@ class MinifyJavaScript
         if ($event->isInline()) {
             // @todo Test and implement minification for inline JS!
             return;
-        }
-
-        if (ExtensionConfigurationUtility::get('assetCollectorMinifyJavaScriptFiles')) {
-            $this->processFiles(
-                $event,
-                $event->getAssetCollector()->getJavaScripts($event->isPriority())
-            );
-        }
-    }
-
-    protected function processFiles(Event $event, array $assets): void
-    {
-        foreach ($assets as $asset => $config) {
-            // Skip already processed files
-            if (substr($config['source'], 7) === '.min.js' || substr($config['source'], 12) === '.min.js.gzip') {
-                continue;
-            }
-
-            $event->getAssetCollector()->removeJavaScript($asset);
-            $event->getAssetCollector()->addJavaScript(
-                $asset,
-                $this->getCompressor()->compressJsFile($config['source']),
-                $config['attributes'],
-                $config['options']
-            );
         }
     }
 }
