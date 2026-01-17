@@ -21,12 +21,12 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::CODE_QUALITY,
         LevelSetList::UP_TO_PHP_82,
 
-        Typo3LevelSetList::UP_TO_TYPO3_12,
-        Typo3SetList::TYPO3_13,
+        Typo3LevelSetList::UP_TO_TYPO3_14,
+        Typo3SetList::TYPO3_14,
     ]);
 
     // Define your target version which you want to support
-    $rectorConfig->phpVersion(PhpVersion::PHP_81);
+    $rectorConfig->phpVersion(PhpVersion::PHP_82);
 
     $rectorConfig->skip([
         NullToStrictStringFuncCallArgRector::class,
