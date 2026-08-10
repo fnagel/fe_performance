@@ -1,6 +1,6 @@
 {
   "name": "felixnagel/fe-performance",
-  "description": "This TYPO3 CMS extension improves your frontend performance. Adds JavaScript minification for files and inline JS. Comes with some useful tweaks to improve asset rendering.",
+  "description": "Frontend Performance - This TYPO3 CMS extension improves your frontend performance. Adds JavaScript minification for files and inline JS. Comes with some useful tweaks to improve asset rendering.",
   "type": "typo3-cms-extension",
   "keywords": ["TYPO3 CMS", "performance", "frontend", "javascript", "assets"],
   "homepage": "https://extensions.typo3.org/extension/fe_performance",
@@ -34,6 +34,9 @@
   "replace": {
     "typo3-ter/fe_performance": "self.version"
   },
+  "conflict": {
+    "sgalinski/scriptmerger": "*"
+  },
   "repositories": [
     {
       "type": "vcs",
@@ -42,7 +45,11 @@
   ],
   "extra": {
     "typo3/cms": {
-      "extension-key": "fe_performance"
-    }
+      "extension-key": "fe_performance",
+		"version": "3.0.0+dev",
+		"Package": {
+			"providesPackages": {}
+		}
+	}
   }
 }
